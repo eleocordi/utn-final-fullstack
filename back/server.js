@@ -1,8 +1,9 @@
-//requerimientos 
+//requerimientos
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session'); 
+const productsRoutes = require('./routes/productRoutes');
 const userRoutes = require('./routes/userRoutes');
 
 require('dotenv').config(); 
@@ -22,7 +23,9 @@ app.use(session({
 
 
 // Rutas
+app.use('/api/products', productsRoutes);
 app.use('/api/users', userRoutes);
+
 
 // Conexión a la base de datos
 mongoose.connect(process.env.MONGODB_URI)

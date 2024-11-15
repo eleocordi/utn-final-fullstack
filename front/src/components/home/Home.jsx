@@ -21,7 +21,7 @@ function Home() {
             <div className="card-container d-flex flex-column align-items-center mb-3">
               <h5>Envíos y Retiros</h5>
               <i className="bi bi-box-seam fs-4 mb-2"></i>
-              <p>Belgrano - Palermo / Envíos SIN CARGO a partir de $20.000</p>
+              <p>Belgrano - Palermo / Envíos SIN CARGO a partir de $50.000</p>
             </div>
             <div className="card-container d-flex flex-column align-items-center mb-3">
               <h5>Formas de Pago</h5>
