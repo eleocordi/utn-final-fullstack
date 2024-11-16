@@ -11,7 +11,7 @@ exports.getProducts = async (req, res) => {
   }
 };
 
-// Obtener un hechizo por ID
+// Obtener un producto por ID
 exports.getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);

@@ -1,41 +1,51 @@
-*INICIAR REPO EN GIT
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/eleocordi/utn-final-fullstack.git
-git push -u origin main
+# **PROYECTO GESTION DE TIENDA ONLINE**
 
-****************
+[REPOSITORIO ONLINE](https://github.com/eleocordi/utn-final-fullstack.git)
 
-Estructura del Proyecto
-*Backend
-**Tecnología : Node.js Express 
-***Iniciar proyecto
-cd back
-npm init -y 
-*** Configurar Script para arranque
+**INICIAR REPO EN GIT**
+```
+ git init
+ git add README.md
+ git commit -m "first commit"
+ git branch -M main
+ git remote add origin https://github.com/eleocordi/utn-final-fullstack.git
+ git push -u origin main
+```
+---
+## **ESTRUCTURA DEL PROYECTO**
+
+### _Backend_
+- Tecnología utilizada: Node.js Express 
+#### Iniciar proyecto
+```cd back
+npm init -y
+``` 
+##### Configurar Script para arranque en archivo package.json
+```
  "start": "nodemon server.js"
-***Instalar dependencias
-npm i express mongoose express-session multer dotenv cors bcrypt
+```
+#### Instalar dependencias
+```
+npm i express mongoose express-session multer dotenv cors  axios
+```
+#### Crear Base de Datos en Mongo -Estructura
 
+#### Crear Archivos y Carpetas - Estructura
+- server.js
 
-*** Crear Archivos y Carpetas - Estructura
-server.js
-(Contenido del archivo
+ - .env (contenido del archivo)
 
-)
-.env
-(contenido del archivo
-
+```
 MONGODB_URI= mongodb://localhost:27017/nombre de mi base de datos
+
 PORT= número de puerto en que corre el back
+
 SESSION_SECRET= clave generada con comando node -e "console.log(require('crypto').randomBytes(32).toString('hex'));"
 
-)
-.gitignore 
-(contenido del archivo
+```
+- .gitignore (contenido del archivo)
 
+```
 # Node modules
 node_modules/
 
@@ -69,13 +79,13 @@ build/
 *.tgz
 *.swp
 *.swo
-)
+```
 
-Carpeta Models
-(Crear los Schema para utilizar en DB
-por ejemplo
-Archivo user.js 
+- Carpeta Models
 
+Crear los Schema para utilizar en db,
+por : Archivo user.js 
+```
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -84,36 +94,32 @@ const userSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('User', userSchema); 
+```
 
-)
-Carpeta Controllers
+- Carpeta Controllers 
 
-Carpeta Routes
+Crear los controladores 
+
+- Carpeta Routes
+
 Configurar Rutas 
 
+---
 
-
-*Frontend
-**Tecnología : React Vite 
-***Iniciar proyecto
+### _Frontend_
+- Tecnología utilizada: React Vite 
+#### Iniciar proyecto
+```
 npm create vite@latest front
 
   cd front
   npm install
   npm run dev
+```
+ #### Crear Archivos y Carpetas - Estructura
+  - Carpeta Components
 
-  Armar Estructura del proyecto
-  Carpeta Components
-  Dentro Carpetas con diferentes componentes del proyecto original
-
+  Crear los diferentes componentes 
   
-  **** Manejo de Sesiones 
-  Carpeta Api
-  Archivos
-  AuthContexs.jsx
-  Login.jsx
-  ProtectedRoute.jsx
-  Register.jsx
-  Api.jsx
 
   
