@@ -85,4 +85,4 @@ const EditarProducto = () => {
   );
 };
 
-export default EditarHechizo;
+export default EditarProducto;
