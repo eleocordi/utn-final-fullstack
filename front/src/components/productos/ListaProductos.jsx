@@ -8,7 +8,7 @@ const ListaProductos = () => {
   useEffect(() => {
     const fetchProductos = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/products');
+        const response = await axios.get('http://localhost:5000/api/productos');
         setProductos(response.data);
       } catch (error) {
         console.error('Error al obtener los Productos:', error);
@@ -25,7 +25,7 @@ const ListaProductos = () => {
       <ul>
         {productos.map((producto) => (
           <li key={producto._id}>
-            {producto.nombre} - <Link to={`/gestion/${producto._id}`}>Ver Detalle</Link>
+            {producto.nombre} - <Link to={`/gestion/${producto._id}`} >Ver Detalle</Link>
           </li>
         ))}
       </ul>

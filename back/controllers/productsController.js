@@ -4,8 +4,8 @@ const Producto = require('../models/ProductsModel');
 // Obtener todos los productos
 exports.getProducts = async (req, res) => {
   try {
-    const products = await Product.find();
-    res.json(products);
+    const productos = await Producto.find();
+    res.json(productos);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -14,9 +14,9 @@ exports.getProducts = async (req, res) => {
 // Obtener un producto por ID
 exports.getProductById = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    if (product) {
-      res.json(product);
+    const producto = await Producto.findById(req.params.id);
+    if (producto) {
+      res.json(producto);
     } else {
       res.status(404).json({ message: 'Producto no encontrado' });
     }
@@ -28,15 +28,15 @@ exports.getProductById = async (req, res) => {
 
 // Crear un nuevo Producto
 exports.createProduct = async (req, res) => {
-  const product = new Product({
+  const producto = new Producto({
     nombre: req.body.nombre,
     descripcion: req.body.descripcion,
     precio: req.body.precio,
   });
   
   try {
-    const nuevoProduct = await product.save();
-    res.status(201).json(nuevoProduct);
+    const nuevoProducto = await producto.save();
+    res.status(201).json(nuevoProducto);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
@@ -45,13 +45,13 @@ exports.createProduct = async (req, res) => {
 // Actualizar un Producto por ID
 exports.updateProduct = async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    if (product) {
-      product.nombre = req.body.nombre || product.nombre;
-      product.descripcion = req.body.descripcion || product.descripcion;
-      product.precio = req.body.precio || product.precio;
+    const producto = await Producto.findById(req.params.id);
+    if (producto) {
+      producto.nombre = req.body.nombre || product.nombre;
+      producto.descripcion = req.body.descripcion || product.descripcion;
+      producto.precio = req.body.precio || product.precio;
       
-      const productActualizado = await product.save();
+      const productActualizado = await producto.save();
       res.json(productActualizado);
     } else {
       res.status(404).json({ message: 'Producto no encontrado' });
@@ -68,9 +68,9 @@ exports.deleteProduct = async (req, res) => {
   }
 
   try {
-    const product = await Product.findById(req.params.id);
-    if (product) {
-      await product.deleteOne();
+    const producto = await Producto.findById(req.params.id);
+    if (producto) {
+      await producto.deleteOne();
       res.json({ message: 'Producto eliminado' });
     } else {
       res.status(404).json({ message: 'Producto no encontrado' });

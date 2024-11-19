@@ -15,7 +15,7 @@
 ## **ESTRUCTURA DEL PROYECTO**
 
 ### _Backend_
-- Tecnología utilizada: Node.js Express 
+- Tecnología utilizada: Node.js, Express, MongoDB
 #### Iniciar proyecto
 ```cd back
 npm init -y
@@ -107,7 +107,7 @@ Configurar Rutas
 ---
 
 ### _Frontend_
-- Tecnología utilizada: React Vite 
+- Tecnología utilizada: React,  Vite, CSS, Bootstrap  
 #### Iniciar proyecto
 ```
 npm create vite@latest front
@@ -119,7 +119,25 @@ npm create vite@latest front
  #### Crear Archivos y Carpetas - Estructura
   - Carpeta Components
 
-  Crear los diferentes componentes 
+  Crear los componentes necesarios para el proyecto
   
+---
+  ## Funcionalidades
+
+- **Lista de Productos**: Visualiza todos los productos disponibles.
+- **Detalles del Producto**: Consulta los detalles de un producto específico.
+- **Crear Producto**: Añade un nuevo producto a la base de datos.
+- **Editar Producto**: Modifica los detalles de un producto existente.
+- **Eliminar Producto**: Elimina un producto de la base de datos.
+---
+
+## Endpoints del API
+
+- `GET /api/products` - Obtiene todos los productos.
+- `GET /api/products/:id` - Obtiene un producto por ID.
+- `POST /api/products` - Crea un nuevo producto.
+- `PUT /api/products/:id` - Actualiza un producto por ID.
+- `DELETE /api/products/:id` - Elimina un producto por ID.
+
 
   

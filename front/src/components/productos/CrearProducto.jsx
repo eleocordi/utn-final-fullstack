@@ -12,7 +12,7 @@ const CrearProducto = () => {
     e.preventDefault();
     try {
       const nuevoProducto = { nombre, descripcion, precio };
-      await axios.post('http://localhost:5000/api/products', nuevoProducto);
+      await axios.post('http://localhost:5000/api/productos', nuevoProducto);
       navigate('/gestion');
     } catch (error) {
       console.error('Error al crear el producto:', error);
