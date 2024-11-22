@@ -26,9 +26,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/gestion" element={<ListaProductos />} />
-            <Route path="/gestion" element={<CrearProducto />} />
-            <Route path="/gestion/:id" element={<DetalleProducto />} />
+            <Route path="/productos" element={<ListaProductos />} />
+            <Route path="/crear" element={<CrearProducto />} />
+            <Route path="/productos/:id" element={<DetalleProducto />} />
             <Route path="/editar-producto/:id" element={<EditarProducto />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

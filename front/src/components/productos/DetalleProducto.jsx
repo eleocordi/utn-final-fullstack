@@ -27,7 +27,7 @@ const DetalleProducto = () => {
         method: 'DELETE',
       });
       if (response.ok) {
-        navigate('/gestion');
+        navigate('/productos');
       } else {
         console.error('Error al eliminar el producto');
       }

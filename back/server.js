@@ -21,9 +21,9 @@ app.use(session({
   cookie: { secure: false }
 }));
 
-
+ 
 // Rutas
-app.use('/api/products', productsRoutes);
+app.use('/api/productos', productsRoutes); // productos 
 app.use('/api/users', userRoutes);
 
 

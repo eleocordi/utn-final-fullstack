@@ -13,7 +13,7 @@ const EditarProducto = () => {
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/products/${id}`);
+        const response = await fetch(`http://localhost:5000/api/productos/${id}`);
         const data = await response.json();
         setProducto(data);
         setNombre(data.nombre);
@@ -36,7 +36,7 @@ const EditarProducto = () => {
         body: JSON.stringify({ nombre, descripcion, precio })
       });
       if (response.ok) {
-        navigate('/gestion');
+        navigate('/productos');
       } else {
         console.error('Error al actualizar el producto');
       }
@@ -76,7 +76,7 @@ const EditarProducto = () => {
             type="number"
             id="precio"
             value={precio}
-            onChange={(e) => setNivel(e.target.value)}
+            onChange={(e) => setPrecio(e.target.value)}
             required
           />
         </div>

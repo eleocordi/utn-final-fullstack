@@ -28,6 +28,11 @@ exports.getProductById = async (req, res) => {
 
 // Crear un nuevo Producto
 exports.createProduct = async (req, res) => {
+  if (!req.body.nombre || !req.body.descripcion || !req.body.precio) {
+    return res.status(400).json({ message: 'Todos los campos son obligatorios' });
+  }
+
+
   const producto = new Producto({
     nombre: req.body.nombre,
     descripcion: req.body.descripcion,
@@ -47,9 +52,9 @@ exports.updateProduct = async (req, res) => {
   try {
     const producto = await Producto.findById(req.params.id);
     if (producto) {
-      producto.nombre = req.body.nombre || product.nombre;
-      producto.descripcion = req.body.descripcion || product.descripcion;
-      producto.precio = req.body.precio || product.precio;
+      producto.nombre = req.body.nombre || producto.nombre;
+      producto.descripcion = req.body.descripcion || producto.descripcion;
+      producto.precio = req.body.precio || producto.precio;
       
       const productActualizado = await producto.save();
       res.json(productActualizado);

@@ -11,19 +11,19 @@ const CrearProducto = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const nuevoProducto = { nombre, descripcion, precio };
+      const nuevoProducto = { nombre, descripcion, precio: parseFloat(precio) };
       await axios.post('http://localhost:5000/api/productos', nuevoProducto);
-      navigate('/gestion');
+      navigate('/crear');
     } catch (error) {
       console.error('Error al crear el producto:', error);
     }
   };
 
   return (
-    <div className="crear-producto">
+    <div >
       <h2>Crear Producto</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        <div >
           <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
@@ -33,7 +33,7 @@ const CrearProducto = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div >
           <label htmlFor="descripcion">Descripción</label>
           <textarea
             id="descripcion"
@@ -42,7 +42,7 @@ const CrearProducto = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div >
           <label htmlFor="precio">Precio</label>
           <input
             type="number"

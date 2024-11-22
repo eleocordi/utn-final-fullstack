@@ -65,7 +65,7 @@ function Header() {
         </Navbar.Collapse>
      
         <ul>
-        <li><Link to="/gestion">Gestión</Link></li>
+        <li><Link to="/productos">Gestión</Link></li>
         <li><Link to="/register">Registro</Link></li>
         <li><Link to="/login">Iniciar sesión</Link></li>
         <li><Link to="/protegida">Sección protegida</Link></li>

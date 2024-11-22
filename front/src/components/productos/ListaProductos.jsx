@@ -25,7 +25,7 @@ const ListaProductos = () => {
       <ul>
         {productos.map((producto) => (
           <li key={producto._id}>
-            {producto.nombre} - <Link to={`/gestion/${producto._id}`} >Ver Detalle</Link>
+            {producto.nombre} - <Link to={`/productos/${producto._id}`} >Ver Detalle</Link>
           </li>
         ))}
       </ul>
