@@ -7,6 +7,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Dropdown from "react-bootstrap/Dropdown";
+import { FaUser } from "react-icons/fa";
 import { useAuth } from "../account/AuthContext";
 import "./Header.css";
 
@@ -16,8 +18,8 @@ function Header() {
   const { logout } = useAuth();
 
   const handleLogout = () => {
-    logout(); 
-    alert('Sesión cerrada'); 
+    logout();
+    alert('Sesión cerrada');
   };
 
 
@@ -45,6 +47,7 @@ function Header() {
             <Nav.Link as={Link} to="/contact" className="contacto">
               Contacto
             </Nav.Link>
+
           </Nav>
           <Form inline>
             <Row>
@@ -62,15 +65,34 @@ function Header() {
               </Col>
             </Row>
           </Form>
-        </Navbar.Collapse>
+
+
+          <Dropdown align="end">
+            <Dropdown.Toggle
+              variant="secondary"
+              id="dropdown-user"
+              className="ms-3"
+            >
+              <FaUser size={20} />
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to="/login">
+                Iniciar sesión
+              </Dropdown.Item>
+              <Dropdown.Item as={Link} to="/register">
+                Registrar Usuario
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={handleLogout}>
+                Cerrar sesión
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+
+                  </Navbar.Collapse>
+
      
-        <ul>
-        <li><Link to="/productos">Gestión</Link></li>
-        <li><Link to="/register">Registro</Link></li>
-        <li><Link to="/login">Iniciar sesión</Link></li>
-        <li><Link to="/protegida">Sección protegida</Link></li>
-        <li><button onClick={handleLogout}>Cerrar sesión</button></li>
-      </ul>
       </Container>
     </Navbar>
   );

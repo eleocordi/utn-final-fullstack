@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import api from './api';
+import fondo from '../../assets/images/fondo2.jpg';
+import './register.css'; 
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -16,24 +18,34 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2> Registro de Nuevo Usuario</h2>
-      <input
-        type="text"
-        placeholder="Nombre de usuario"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Registrar Usuario</button>
-    </form>
+    <div className="register-container"  style={{
+      backgroundImage: `url(${fondo})`
+    }}>
+      <form className="register-form" onSubmit={handleSubmit}>
+        <h2 className="register-title">Registrar Usuario</h2>
+        <div className="form-group">
+          <input
+            type="text"
+            className="register-input"
+            placeholder="Nombre de usuario"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            className="register-input"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button className="register-button" type="submit">Registrar Usuario</button>
+      </form>
+    </div>
   );
 };
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import api from './api';
 import { useAuth } from './AuthContext'; 
-
+import fondo from '../../assets/images/fondo2.jpg';
+import './login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -22,24 +23,35 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Iniciar Sesión</h2>
-      <input
-        type="text"
-        placeholder="Nombre de usuario"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Iniciar Sesión</button>
+
+    <div className='login-contenedor' style={{
+      backgroundImage: `url(${fondo})`
+    }}>
+    <form className="login-form" onSubmit={handleSubmit}>
+      <h2 className="login-title">Iniciar Sesión</h2>
+      <div className="form-group">
+        <input
+          type="text"
+          className="login-input"
+          placeholder="Nombre de usuario"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+      <div className="form-group">
+        <input
+          type="password"
+          className="login-input"
+          placeholder="Contraseña"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <button className="login-button" type="submit">Iniciar Sesión</button>
     </form>
+    </div>
   );
 };
 
