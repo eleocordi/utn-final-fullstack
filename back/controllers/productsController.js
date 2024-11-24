@@ -28,15 +28,17 @@ exports.getProductById = async (req, res) => {
 
 // Crear un nuevo Producto
 exports.createProduct = async (req, res) => {
-  if (!req.body.nombre || !req.body.descripcion || !req.body.precio) {
+  if (!req.body.nombre  || !req.body.precio || !req.body.descripcion|| !req.body.categoria|| !req.body.imagen ) {
     return res.status(400).json({ message: 'Todos los campos son obligatorios' });
   }
 
 
   const producto = new Producto({
     nombre: req.body.nombre,
-    descripcion: req.body.descripcion,
     precio: req.body.precio,
+    descripcion: req.body.descripcion,
+    categoria: req.body.categoria,
+    imagen: req.body.imagen,
   });
   
   try {
@@ -53,8 +55,10 @@ exports.updateProduct = async (req, res) => {
     const producto = await Producto.findById(req.params.id);
     if (producto) {
       producto.nombre = req.body.nombre || producto.nombre;
-      producto.descripcion = req.body.descripcion || producto.descripcion;
       producto.precio = req.body.precio || producto.precio;
+      producto.descripcion = req.body.descripcion || producto.descripcion;
+      producto.categoria = req.body.categoria || producto.categoria;
+      producto.imagen = req.body.imagen || producto.imagen;
       
       const productActualizado = await producto.save();
       res.json(productActualizado);

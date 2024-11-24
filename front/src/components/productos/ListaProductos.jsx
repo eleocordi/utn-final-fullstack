@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './ListaProductos.css';
+
 
 const ListaProductos = () => {
   const [productos, setProductos] = useState([]);
@@ -19,9 +21,9 @@ const ListaProductos = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Lista de Productos</h1>
-      <Link to="/crear" className="crear-producto">Crear nuevo Producto</Link>
+    <div className='lista-contenedor'>
+      <h2>Listado de Productos</h2>
+     
       <ul>
         {productos.map((producto) => (
           <li key={producto._id}>
@@ -29,6 +31,11 @@ const ListaProductos = () => {
           </li>
         ))}
       </ul>
+      <div className="lista-boton">
+      <Link to="/crear-producto" className="crear-producto">Crear nuevo Producto</Link>
+
+      </div>
+      
     </div>
   );
 };
