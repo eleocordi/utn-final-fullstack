@@ -1,0 +1,11 @@
+.protegida-contenedor {   
+    margin: 0;
+    padding: 0; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
