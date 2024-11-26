@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { fetchProductos } from "./api";
+import api from "./api";
 import { Container, Row, Col } from "react-bootstrap";
 import "./CardB.css";
 
@@ -17,12 +17,14 @@ function CardB() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await fetchProductos();
+        // Corrección: Extraer los datos de la respuesta correctamente
+        const response = await api.get('/productos');
+        const data = response.data;
         setProducts(data);
         setLoading(false);
         const initialQuantities = {};
         data.forEach((product) => {
-          initialQuantities[product.id] = 1;
+          initialQuantities[product._id] = 1;
         });
         setQuantities(initialQuantities);
       } catch (error) {
@@ -34,14 +36,13 @@ function CardB() {
   }, []);
 
   const handleAddToCart = (product) => {
-    const quantity = quantities[product.id];
+    const quantity = quantities[product._id];
     const existingItem = cartItems.find(
-      (item) => item.product.id === product.id
-    );
+      (item) => item.product._id === product._id);
     if (existingItem) {
       setCartItems(
         cartItems.map((item) =>
-          item.product.id === product.id
+          item.product.id === product._id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         )
@@ -85,36 +86,36 @@ function CardB() {
       <Container className="mt-4">
         <Row className="gy-4 gx-4">
           {products.map((product) => (
-            <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+            <Col key={product._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
               <Card className="bg-secondary text-white text-center h-100">
                 <Card.Img
                   variant="top"
-                  src={product.image}
-                  alt={product.title}
+                  src={product.imagen}
+                  alt={product.nombre}
                   className="card-img"
                 />
                 <Card.Body className="d-flex flex-column align-items-center card-body">
-                  <Card.Title>{product.title}</Card.Title>
-                  <Card.Text>${product.price.toFixed(2)}</Card.Text>
+                  <Card.Title>{product.nombre}</Card.Title>
+                  <Card.Text>${product.precio.toFixed(2)}</Card.Text>
                   <Card.Text className="card-description">
-                    {product.description}
+                    {product.descripcion}
                   </Card.Text>
                   <div className="mt-auto w-100">
                     <div className="d-flex flex-column align-items-center">
                       <div className="d-flex mb-2">
                         <Button
                           variant="outline-dark"
-                          onClick={() => handleQuantityChange(product.id, -1)}
+                          onClick={() => handleQuantityChange(product._id, -1)}
                           className="me-1"
                         >
                           -
                         </Button>
                         <span className="contador mx-2">
-                          {quantities[product.id]}
+                          {quantities[product._id]}
                         </span>
                         <Button
                           variant="outline-dark"
-                          onClick={() => handleQuantityChange(product.id, 1)}
+                          onClick={() => handleQuantityChange(product._id, 1)}
                           className="ms-1"
                         >
                           +
@@ -155,7 +156,7 @@ function CardB() {
                   className="d-flex justify-content-between align-items-center mb-2"
                 >
                   <span>
-                    {item.product.title} x {item.quantity}
+                    {item.product.nombre} x {item.quantity}
                   </span>
                   <Button
                     variant="danger"
