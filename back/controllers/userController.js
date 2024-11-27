@@ -33,7 +33,7 @@ async function createAdminUser() {
 
 // Función para registrar un usuario cliente
 async function registerClient(req, res) {
-    const { username, password, } = req.body;
+    const { username, password, role} = req.body;
 
     try {
         const existingUser = await User.findOne({ username });
