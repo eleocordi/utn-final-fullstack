@@ -14,10 +14,6 @@ import Register from "./components/account/Register";
 import Login from "./components/account/Login";
 import ProtectedRoute from "./components/account/ProtectedRoute";
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 185bc0334c24951ab371bc50e7c2c7c465e56893
 function App() {
   return (
     <AuthProvider>
