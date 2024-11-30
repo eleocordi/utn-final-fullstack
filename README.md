@@ -33,7 +33,11 @@ npm init -y
 ```
 #### Instalar dependencias
 ```
+<<<<<<< HEAD
 npm i express mongoose express-session multer dotenv cors  axios nodemailer
+=======
+npm i express mongoose express-session multer dotenv cors  axios
+>>>>>>> 185bc0334c24951ab371bc50e7c2c7c465e56893
 ```
 #### Crear Base de Datos en Mongo -Estructura
 
@@ -66,7 +70,11 @@ npm i express mongoose express-session multer dotenv cors  axios nodemailer
  - .env (contenido del archivo)
 
 ```
+<<<<<<< HEAD
 MONGODB_URI= mongodb://localhost:27017/gestion-tienda
+=======
+ONGODB_URI= mongodb://localhost:27017/gestion-tienda
+>>>>>>> 185bc0334c24951ab371bc50e7c2c7c465e56893
 
 PORT= 5000
 
@@ -108,6 +116,7 @@ npm create vite@latest front
 
 
 ## Datos para cargar productos de ejemplo
+<<<<<<< HEAD
 ```
 "nombre": "Chaqueta impermeable para mujer. Rompeviento. Impermeables, a rayas",
     "precio": 390990,
@@ -120,6 +129,8 @@ npm create vite@latest front
     "descripcion": " Material de piel sintética para estilo y comodidad. Dos bolsillos delanteros, chaqueta de piel sintética estilo mezclilla con capucha.Detalle de botones cintura / Detalle de costuras en los costados",
     "categoria": "Ropa de mujer",
     "imagen": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
+=======
+>>>>>>> 185bc0334c24951ab371bc50e7c2c7c465e56893
 
 "nombre": "Chaqueta de snowboard. 3 en 1.  Abrigo de invierno",
     "precio": 256990,
@@ -128,7 +139,22 @@ npm create vite@latest front
     "imagen": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
 
 
+<<<<<<< HEAD
     
 
 
     
+=======
+    "nombre": "Chaqueta motociclista de piel sintética. Capucha extraíble, para mujer",
+    "precio": 290950,
+    "descripcion": " Material de piel sintética para estilo y comodidad. Dos bolsillos delanteros, chaqueta de piel sintética estilo mezclilla con capucha.Detalle de botones cintura / Detalle de costuras en los costados",
+    "categoria": "Ropa de mujer",
+    "imagen": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
+
+
+    "nombre": "Chaqueta impermeable para mujer. Rompeviento. Impermeables, a rayas",
+    "precio": 390990,
+    "descripcion": "Manga larga con capucha, diseño de cintura con cordón ajustable. Cierre frontal con botón y cremallera, totalmente forrado a rayas. Dos bolsillos laterales de gran tamaño.Capucha forrada de algodón adjunta con Los cordones ajustables.",
+    "categoria": "Ropa de mujer",
+    "imagen": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
+>>>>>>> 185bc0334c24951ab371bc50e7c2c7c465e56893

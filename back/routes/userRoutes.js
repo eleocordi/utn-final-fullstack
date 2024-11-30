@@ -1,6 +1,5 @@
 //
 const express = require('express');
-const nodemailer = require('nodemailer'); // Importar Nodemailer
 const router = express.Router();
 const userController = require('../controllers/userController');
 
