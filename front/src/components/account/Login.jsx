@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import api from './api';
 import { useAuth } from './AuthContext'; 
 import fondo from '../../assets/images/fondo2.jpg';
-import './login.css';
+import './Login.css';
 
 const Login = () => {
   const [username, setUsername] = useState('');
