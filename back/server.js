@@ -1,7 +1,6 @@
 // Requerimientos
 require('dotenv').config();
 const express = require('express');
-const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const session = require('express-session'); 
@@ -17,13 +16,7 @@ const app = express();
 app.use(cors()); // Permite solicitudes desde diferentes orígenes
 app.use(express.json()); 
 app.use(bodyParser.json());
-app.use('/api/mail', mailRoutes);
 
-app.use(express.static(path.join(__dirname, 'front/dist')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'front/dist', 'index.html'));
-});
 
 // Configuración de la sesión 
 app.use(session({
@@ -36,6 +29,7 @@ app.use(session({
 // Rutas
 app.use('/api/productos', productsRoutes); // productos 
 app.use('/api/users', userRoutes);
+app.use('/api/mail', mailRoutes);
 
 // Conexión a la base de datos
 mongoose.connect(process.env.MONGODB_URI)
