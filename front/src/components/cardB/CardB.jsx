@@ -17,7 +17,7 @@ function CardB() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Corrección: Extraer los datos de la respuesta correctamente
+        
         const response = await api.get('/productos');
         const data = response.data;
         setProducts(data);

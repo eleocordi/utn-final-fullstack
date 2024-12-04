@@ -4,7 +4,7 @@
 - Altamira Cecilia
 - Cordiviola Eleonora
 - De la Iglesia Manuel
-- Fiorentino Leonardo
+- Fiorenzo Leonardo
 
 **DESCRIPCIÓN**
 
